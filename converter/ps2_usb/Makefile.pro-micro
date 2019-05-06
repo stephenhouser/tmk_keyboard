@@ -2,8 +2,6 @@
 # Based on:
 # https://hackaday.io/project/8282-alpen-clack/log/27475-use-a-pro-micro-in-a-keyboard
 
-KEYMAP = stephen
-
 # MCU name
 MCU = atmega32u4
 
