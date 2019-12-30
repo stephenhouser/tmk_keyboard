@@ -1,0 +1,62 @@
+# Makefile.stephen - Custom Makefile for tmk ps/2-usb converter
+#
+# 2019/12/30 Stephen Houser <stephenhouser@gmail.com>
+
+# The core target we are building (don't change)
+TARGET ?= ps2_usb_rev2_unimap
+
+# Building for a Pro Micro clone (atmega32u4)
+MCU = atmega32u4			
+BOOTLOADER_SIZE = 4096		
+
+# Use custom configuration
+CONFIG_H = config_stephen.h
+
+# Using newer 16-bit unimap (not 8-bit keymap)
+UNIMAP_ENABLE = yes
+
+# Use my custom keymap/unimap
+KEYMAP = stephen
+KEYMAP_SECTION_ENABLE = yes
+
+# Virtual DIP switch configuration(+1000)
+BOOTMAGIC_ENABLE ?= yes
+
+# Mouse keys(+4700)
+MOUSEKEY_ENABLE ?= no
+
+# Audio control and System control(+450)
+EXTRAKEY_ENABLE ?= yes
+
+# Console for debug(+400)
+CONSOLE_ENABLE ?= yes
+
+# Commands for debug and configuration
+COMMAND_ENABLE ?= yes
+
+# Breathing sleep LED during USB suspend
+#SLEEP_LED_ENABLE = yes
+
+# USB Nkey Rollover - not yet supported in LUFA
+NKRO_ENABLE ?= yes			
+
+#
+# PS/2 Signal Handling
+# Choose one of the three methods to implement PS/2 signal handling.
+#
+# Uses pin interrupt to detect falling edge of clock line. (Recommended)	
+PS2_USE_INT = yes
+
+# USART Uses AVR USART hardware engine to receive PS/2 signal.
+PS2_USE_USART = no
+
+# Implementation with portable C code for reference.
+PS2_USE_BUSYWAIT = no
+
+#
+# Programming
+#
+# avrdude with arduino
+#PROGRAM_CMD = avrdude -p $(MCU) -c avr109 -P /dev/cu.usbmodem49 -U flash:w:$(TARGET).hex
+
+include Makefile
