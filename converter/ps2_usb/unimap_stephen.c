@@ -42,4 +42,22 @@ const action_t actionmaps[][UNIMAP_ROWS][UNIMAP_COLS] PROGMEM = {
     ),
 };
 
+const action_t PROGMEM fn_actions[] = {
+    ACTION_MACRO(0),
+    ACTION_MACRO(1)
+};
 
+const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
+{
+    switch (id) {
+        case 0:
+            return (record->event.pressed ?
+                    MACRO( T(S), T(T), T(E), T(P), T(H), T(E), T(N), T(H), T(O), T(U), T(S), T(E), T(R), D(LSFT), T(2), U(LSFT), T(G), T(M), T(A), T(I), T(L), T(DOT), T(C), T(O), T(M), END ) :
+                    MACRO_NONE );
+        case 1:
+            return (record->event.pressed ?
+                    MACRO( D(LALT), D(TAB), END ) :
+                    MACRO( U(TAB), END ));
+    }
+    return MACRO_NONE;
+}
