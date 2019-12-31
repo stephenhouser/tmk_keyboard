@@ -5,15 +5,15 @@
 | ---                   | ---               | ---           |
 | Keyboard Key          | macOS Key         | TMK Key       |
 | ---                   | ---               | ---           |
-| Caps Lock             | ⌥ Option          | LALT          |
-| Left Control          | ^ Left Control    | LCTL          |
-| Left Alt              | ⌘ Command (LGUI)  | LGUI          |
-| Right Alt             | ⌥ Option          | RALT          |
-| Right Control         | ^ Right Control   | RCTL          |
+| x ßCaps Lock             | ⌥ Option          | LALT          |
+| x Left Control          | ^ Left Control    | LCTL          |
+| x Left Alt              | ⌘ Command (LGUI)  | LGUI          |
+| x Right Alt             | ⌥ Option          | RALT          |
+| x Right Control         | ^ Right Control   | RCTL          |
 | ---                   | ---               | ---           |
-| Print Screen          | Volume Down       | VOLDN         |
-| Scroll Lock           | Volume Up         | VOLUP         |
-| Pause                 | Mute              | MUTE          |
+| x Print Screen          | Volume Down       | VOLDN         |
+| x Scroll Lock           | Volume Up         | VOLUP         |
+| x Pause                 | Mute              | MUTE          |
 | ---                   | ---               | ---           |
 
 ## Compilation Notes

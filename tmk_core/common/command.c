@@ -117,14 +117,14 @@ static void command_common_help(void)
 {
     print("\n\t- Magic -\n"
           "d:	debug\n"
-          "x:	debug matrix\n"
+          "g:	debug matrix\n"
           "k:	debug keyboard\n"
           "m:	debug mouse\n"
-          "v:	version\n"
+          "i:	version\n"
           "s:	status\n"
-          "c:	console mode\n"
+          "b:	console mode\n"
           "0-4:	layer0-4(F10-F4)\n"
-          "Paus:	bootloader\n"
+          "SysReq:	bootloader\n"
 
 #ifdef KEYBOARD_LOCK_ENABLE
           "Caps:	Lock\n"
@@ -139,7 +139,7 @@ static void command_common_help(void)
 #endif
 
 #ifdef SLEEP_LED_ENABLE
-          "z:	sleep LED test\n"
+          "l:	sleep LED test\n"
 #endif
     );
 }
@@ -189,7 +189,7 @@ static bool command_common(uint8_t code)
 #endif
     switch (code) {
 #ifdef SLEEP_LED_ENABLE
-        case KC_Z:
+        case KC_L:
             // test breathing sleep LED
             print("Sleep LED test\n");
             if (sleep_led_test) {
@@ -224,7 +224,7 @@ static bool command_common(uint8_t code)
         case KC_SLASH: /* ? */
             command_common_help();
             break;
-        case KC_C:
+        case KC_B:
             debug_matrix   = false;
             debug_keyboard = false;
             debug_mouse    = false;
@@ -233,7 +233,7 @@ static bool command_common(uint8_t code)
             print("C> ");
             command_state = CONSOLE;
             break;
-        case KC_PAUSE:
+        case KC_PSCR:
             clear_keyboard();
             print("\n\nbootloader... ");
             wait_ms(1000);
@@ -251,7 +251,7 @@ static bool command_common(uint8_t code)
                 debug_enable   = true;
             }
             break;
-        case KC_X: // debug matrix toggle
+        case KC_G: // debug matrix toggle
             debug_matrix = !debug_matrix;
             if (debug_matrix) {
                 print("\nmatrix: on\n");
@@ -278,7 +278,7 @@ static bool command_common(uint8_t code)
                 print("\nmouse: off\n");
             }
             break;
-        case KC_V: // print version & information
+        case KC_I: // print version & information
             print("\n\t- Version -\n");
             print("DESC: " STR(DESCRIPTION) "\n");
             print("VID: " STR(VENDOR_ID) "(" STR(MANUFACTURER) ") "
